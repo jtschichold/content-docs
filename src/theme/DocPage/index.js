@@ -41,7 +41,7 @@ function DocPage(props) {
   return (
     <Layout version={version} key={isClient}>
       <div className={styles.docPage}>
-        {sidebar && isClient && (
+        {sidebar && isClient && false && (
           <div className={styles.docSidebarContainer} role="complementary">
             <DocSidebar
               docsSidebars={docsSidebars}
