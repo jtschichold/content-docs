@@ -41,7 +41,7 @@ function DocPage(props) {
   return (
     <Layout version={version} key={isClient}>
       <div className={styles.docPage}>
-        {sidebar && isClient && false && (
+        {sidebar && isClient && (
           <div className={styles.docSidebarContainer} role="complementary">
             <DocSidebar
               docsSidebars={docsSidebars}
@@ -52,9 +52,11 @@ function DocPage(props) {
           </div>
         )}
         <main className={styles.docMainContainer}>
-          <MDXProvider components={MDXComponents}>
-            {renderRoutes(baseRoute.routes)}
-          </MDXProvider>
+          { isClient &&
+            <MDXProvider components={MDXComponents}>
+              {renderRoutes(baseRoute.routes)}
+            </MDXProvider>
+          }
         </main>
       </div>
     </Layout>
